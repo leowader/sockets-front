@@ -1,9 +1,16 @@
-import Home from "./pages/Home";
+import { Suspense } from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+import { AppRouter } from "./routes/Router";
+import Loading from "./components/shared/Loading";
 
 function App() {
   return (
     <>
-    <Home></Home>
+      <Router>
+        <Suspense fallback={<Loading/>}>
+          <AppRouter />
+        </Suspense>
+      </Router>
     </>
   );
 }
